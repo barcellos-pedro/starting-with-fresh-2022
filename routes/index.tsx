@@ -4,12 +4,12 @@ import { Image } from '../components/Image.tsx';
 
 export default function HomePage() {
   return (
-    <>
+    <main class="flex flex-col justify-center h-screen">
       <Head>
         <title>Fresh App</title>
       </Head>
 
-      <div class="max-w-screen-lg flex flex-col gap-3 justify-center items-center">
+      <div class="flex flex-col gap-3 justify-center items-center">
         <Image
           src="/logo.svg"
           class="w-32 h-32"
@@ -20,13 +20,41 @@ export default function HomePage() {
           Welcome to <span class="font-bold">FRESH</span>
         </p>
 
-        <p>
-          Try updating this message in{' '}
-          <code class="bg-gray-100 p-1 rounded">./routes/index.tsx</code>
-        </p>
+        <div>
+          <p class="font-semibold">Links</p>
 
+          <ul>
+            <li>
+              <a class="hover:underline" href="/search">
+                Search
+              </a>
+            </li>
+            <li>
+              <a class="hover:underline" href="/greet/pedro">
+                Greet
+              </a>
+            </li>
+            <li>
+              <a class="hover:underline" href="/github/barcellos-pedro">
+                Github
+              </a>
+            </li>
+            <li>
+              <a class="hover:underline" href="/about">
+                About
+              </a>
+            </li>
+            <li>
+              <a class="hover:underline" href="/api/hello">
+                API hello world
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <p class="text-xl text-green-500 font-semibold">Island component</p>
         <Counter initialValue={3} />
       </div>
-    </>
+    </main>
   );
 }
