@@ -42,7 +42,7 @@ export default function SearchPage({ data }: PageProps<Data>) {
           type="search"
           name="search"
           id="search"
-          defaultValue={query}
+          defaultValue={query || ''}
         />
         <button
           type="submit"
@@ -64,7 +64,10 @@ export default function SearchPage({ data }: PageProps<Data>) {
           ))}
         </section>
       ) : (
-        <p>Nothing to show</p>
+        <>
+          <p>Try searching a name from the list below:</p>
+          <p>{NAMES.join(', ')}</p>
+        </>
       )}
     </main>
   );
