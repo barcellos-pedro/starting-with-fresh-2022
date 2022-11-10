@@ -40,6 +40,11 @@ export default function HomePage() {
               </a>
             </li>
             <li>
+              <a class="hover:underline" href="/countdown">
+                Countdown
+              </a>
+            </li>
+            <li>
               <a class="hover:underline" href="/about">
                 About
               </a>
