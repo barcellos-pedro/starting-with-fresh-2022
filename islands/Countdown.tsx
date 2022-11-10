@@ -1,34 +1,20 @@
-import { useEffect, useState } from 'preact/hooks';
+import { useCountdown } from '../hooks/use-countdown.ts';
 
-const timeFmt = new Intl.RelativeTimeFormat('en-US');
+interface CountdownProps {
+  targetTime: string;
+}
 
-// The target date is passed as a string instead of as a `Date`,
-// because island components props need to be JSON (de)serializable.
-export default function Countdown(props: { target: string }) {
-  const target = new Date(props.target);
-  const [now, setNow] = useState(new Date());
+/**
+ * The target date is passed as a string
+ * instead of as a `Date`, because island components props
+ * need to be JSON (de)serializable.
+ */
+export default function Countdown({ targetTime }: CountdownProps) {
+  const { now, target, remaining } = useCountdown(targetTime);
 
-  // Set up an interval to update the `now` date
-  // every second with the current date
-  // as long as the component is mounted.
-  useEffect(() => {
-    const timer = setInterval(() => {
-      if (now > target) {
-        clearInterval(timer);
-      }
-      setNow(new Date());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, [props.target]);
-
-  // If the target date has passed, we stop counting down.
   if (now > target) {
-    return <span>🎉</span>;
+    return <p>Event started! 🎉</p>;
   }
 
-  // Otherwise, we format the remaining time
-  // using Intl.RelativeTimeFormat and render it.
-  const secondsLeft = Math.floor((target.getTime() - now.getTime()) / 1000);
-
-  return <p>{timeFmt.format(secondsLeft, 'second')}</p>;
+  return <p>Time left: {remaining}</p>;
 }

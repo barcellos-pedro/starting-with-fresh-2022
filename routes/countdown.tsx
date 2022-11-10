@@ -2,14 +2,22 @@ import Countdown from '../islands/Countdown.tsx';
 
 export default function CountdownPage() {
   const date = new Date();
-  date.setHours(date.getHours() + 3);
+  // Target Date day +1
+  // date.setDate(date.getDate() + 1);
+
+  // Target Date hours +1
+  // date.setHours(date.getHours() + 1);
+
+  // Target Date minutes +1
+  // date.setMinutes(date.getMinutes() + 1);
+
+  // Target Date seconds +1
+  date.setSeconds(date.getSeconds() + 10);
 
   return (
     <main>
       <h1>Countdown</h1>
-      <p>
-        The big event is happening <Countdown target={date.toISOString()} />.
-      </p>
+      <Countdown targetTime={date.toISOString()} />
     </main>
   );
 }
