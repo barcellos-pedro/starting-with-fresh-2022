@@ -1,7 +1,8 @@
-import { HandlerContext, Handlers } from '$fresh/server.ts';
+import { HandlerContext, Handler } from "$fresh/server.ts";
 
-export const handler: Handlers = {
-  GET(_req: Request, _ctx: HandlerContext) {
-    return new Response('Hello Deno 🦕');
-  },
+export const handler: Handler = (
+  _req: Request,
+  _ctx: HandlerContext
+): Response => {
+  return new Response("Hello Deno 🦕");
 };
