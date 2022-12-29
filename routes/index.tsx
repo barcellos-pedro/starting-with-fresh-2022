@@ -1,6 +1,6 @@
-import { Head } from '$fresh/runtime.ts';
-import Counter from '../islands/Counter.tsx';
-import { Image } from '../components/Image.tsx';
+import { Head } from "$fresh/runtime.ts";
+import Counter from "../islands/Counter.tsx";
+import { Image } from "../components/Image.tsx";
 
 export default function HomePage() {
   return (
@@ -52,6 +52,11 @@ export default function HomePage() {
             <li>
               <a class="hover:underline" href="/api/hello">
                 API hello world
+              </a>
+            </li>
+            <li>
+              <a class="hover:underline" href="/errors">
+                Errors page
               </a>
             </li>
           </ul>
