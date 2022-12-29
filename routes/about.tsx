@@ -9,7 +9,7 @@ import { HandlerContext, Handlers } from '$fresh/server.ts';
 export const handler: Handlers = {
   async GET(req: Request, ctx: HandlerContext) {
     const response = await ctx.render();
-    response.headers.set('X-Custom-Header', 'About Page');
+    response.headers.set('Custom-Header', 'About Page');
     return response;
   },
 };
