@@ -9,7 +9,7 @@ type FileInfo = {
 export default function UploadForm() {
   const [fileInfo, setFileInfo] = useState<FileInfo | null>(null);
 
-  const onSelectFile = (event: any) => {
+  const onSelectFile = (_event: unknown) => {
     const fileInput = document.querySelector("input");
     const file = fileInput?.files?.length ? fileInput.files[0] : null;
 
@@ -37,7 +37,7 @@ export default function UploadForm() {
 
       <input type="file" name="file" onInput={onSelectFile} />
 
-      {!!fileInfo && (
+      {fileInfo && (
         <fieldset>
           <legend class="font-bold">File to upload</legend>
           <p>Name: {fileInfo.name}</p>

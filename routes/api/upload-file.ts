@@ -10,7 +10,7 @@ async function uploadFile(file: File) {
     let extension = "";
 
     if (file.type.includes("image")) {
-      extension = file.type.substring(file.type.indexOf("/") + 1);
+      extension = file.type.substring(file.type.indexOf("/") + 1); // 'image/{png}'
     } else if (file.type.includes("text")) {
       extension = "txt";
     }
@@ -43,13 +43,17 @@ export const handler: Handlers = {
       const filePath = await uploadFile(file);
 
       return Response.redirect(`http://localhost:8000/${filePath}`);
-    } catch (error) {
-      console.error(error.message);
+    } catch (err: unknown) {
+      const error = err as Error;
+      const { name, message, stack } = error;
 
       return Response.json(
         {
-          message: "File upload error. Try again.",
-          error: error.message,
+          error: {
+            name: `File upload error, try again." | ${name}`,
+            message,
+            stack,
+          },
         },
         {
           status: 500,
