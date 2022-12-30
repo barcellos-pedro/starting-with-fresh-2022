@@ -59,6 +59,11 @@ export default function HomePage() {
                 Errors page
               </a>
             </li>
+            <li>
+              <a class="hover:underline" href="/forms">
+                Forms
+              </a>
+            </li>
           </ul>
         </div>
 
