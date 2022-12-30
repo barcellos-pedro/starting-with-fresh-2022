@@ -63,6 +63,11 @@ export default function HomePage() {
               <a class="hover:underline" href="/forms">
                 Forms
               </a>
+              <li>
+                <a class="hover:underline" href="/upload">
+                  Upload
+                </a>
+              </li>
             </li>
           </ul>
         </div>
